@@ -21,7 +21,17 @@ theRun = _.extend(theRun(), {
       distance: this.distancePerWaypoint(),
       surplus: 10
     })
-  }
+  },
+  passWaypointAsync() {
+    for(let msec of [1000, 2000]){
+      setTimeout(() => this.passWaypoint(), msec)
+    }
+  },
+  autorun: [
+    function () {
+      console.log(this.passedWaypoints().list().length, " waypoints of beer on the wall")
+    }
+  ]
 });
 
 Template.home.viewmodel(theRun);
