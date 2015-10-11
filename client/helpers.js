@@ -10,7 +10,7 @@ addItUp = [
 ]
 
 var surplus = 10;
-getNextSurplus = () => (surplus -= 5)
+getNextSurplus = () => (surplus -= 15)
 
 theRun = new ViewModel(_.extend(theRun(), {
   nextWaypoint() {
@@ -19,9 +19,17 @@ theRun = new ViewModel(_.extend(theRun(), {
   currentSurplus() {
     return _.reduce(_.pluck(this.passedWaypoints(), "surplus"), ...addItUp)
   },
+  surplusHistory() {
+    var surplus=0
+    return this.passedWaypoints().map(waypoint => ({
+      elapsedDistance: waypoint.elapsedDistance,
+      surplus: waypoint.surplus,
+      cumulativeSurplus: (surplus += waypoint.surplus)
+    }));
+  },
   passWaypoint() {
     this.passedWaypoints().push({
-      elapsedDistance: this.nextWaypoint() - this.distancePerWaypoint(),
+      elapsedDistance: this.nextWaypoint(),
       distance: this.distancePerWaypoint(),
       surplus: getNextSurplus()
     })

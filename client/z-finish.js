@@ -1,8 +1,8 @@
 Template.finish.onRendered(() => {
   chartUpdater = Tracker.autorun(() => {
     theRun.passedWaypoints().depend()
-    console.table(theRun.passedWaypoints().array())
-    drawChart(theRun.passedWaypoints().array())
+    //console.table(theRun.surplusHistory())
+    drawChart(theRun.surplusHistory())
   })
 })
 
@@ -26,7 +26,7 @@ var chart = AmCharts.makeChart("chartdiv", {
       "lineThickness": 2,
       "lineColor": "#0f0",
       "negativeLineColor": "#f00",
-      "valueField": "surplus"
+      "valueField": "cumulativeSurplus"
     }],
     "chartScrollbar": {
 
