@@ -1,4 +1,13 @@
 <template name="running">
-  <h1>I'm running</h1>
+  <h1>Keep running!</h1>
+
+  <h2>Next Waypoint</h2>
+  <input id="nextWaypoint" data-bind="value: nextWaypoint">
+
+  <h2>Current Surplus</h2>
+  <input id="currentSurplus" data-bind="value: currentSurplus">
+
+  <button id="testPassWaypoint" data-bind="click: passWaypoint">Test Passing A Waypoint</button>
+  <br/>
   <a href="/finish">Finish</a>
 </template>

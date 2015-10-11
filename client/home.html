@@ -2,8 +2,10 @@
   <h1>Hey I'm Home!</h1>
 
   <div id=startRun>
-  
+    How far: <input id="targetDistance" data-bind="value: targetDistance"><br/>
+    How many waypoints: <input id="numberOfWaypoints" data-bind="value: numberOfWaypoints"><br/>
+    Seconds per waypoint: <input id="secondsPerWaypoint" data-bind="value: secondsPerWaypoint"><br/>
   </div>
 
-  <a href="/running">Start</a>
+  <a href="/running" id="start">Start</a>
 </template>
