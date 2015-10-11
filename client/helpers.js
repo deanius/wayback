@@ -9,7 +9,7 @@ addItUp = [
   0
 ]
 
-theRun = _.extend(theRun(), {
+theRun = new ViewModel(_.extend(theRun(), {
   nextWaypoint() {
     return _.reduce(_.pluck(this.passedWaypoints(), "distance"), ...addItUp) + this.distancePerWaypoint()
   },
@@ -26,13 +26,13 @@ theRun = _.extend(theRun(), {
     for(let msec of [1000, 2000]){
       setTimeout(() => this.passWaypoint(), msec)
     }
-  },
-  autorun: [
-    function () {
-      console.log(this.passedWaypoints().list().length, " waypoints of beer on the wall")
-    }
-  ]
-});
+  }
+}));
+
+Tracker.autorun(() => {
+  console.log(theRun.passedWaypoints().list().length, " waypoints of beer on the wall")
+})
+
 
 Template.home.viewmodel(theRun);
 Template.running.viewmodel(theRun);
