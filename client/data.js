@@ -13,8 +13,8 @@ ExampleRun = {
   completedAt: null,
   /* running screen fields */
   passedWaypoints: [
-    {distance: 0.5, intervalTime: 240, surplus: 30},
-    {distance: 0.5, intervalTime: 290, surplus: 10}
+    {elapsedDistance: 0.5, distance: 0.5, intervalTime: 240, surplus: 30},
+    {elapsedDistance: 1.0, distance: 0.5, intervalTime: 290, surplus: 10}
   ],
   elapsedTime: 530
 }
