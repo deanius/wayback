@@ -30,6 +30,7 @@ theRun = new ViewModel(_.extend(theRun(), {
 }));
 
 Tracker.autorun(() => {
+  new Audio('/clips/whistle.wav').play()
   console.log(theRun.passedWaypoints().list().length, " waypoints of beer on the wall")
 })
 
